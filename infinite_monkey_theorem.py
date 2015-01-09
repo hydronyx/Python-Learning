@@ -33,7 +33,8 @@ def getLoops(goalstr) :
     loop_count = 0; random_string = genRandomString(len(goalstr))
     
     if goalstr == "exit" :
-        print ("\nOhh, I Just saw the dreadful \"Exit\". \nI feel I should wish you a Good Bye then, See ya later :)")
+        print ("\nOhh, I Just saw the dreadful \"Exit\". \n " \
+               " I feel I should wish you a Good Bye then, See ya later :)")
         exit()
     else :
         while ( score(goalstr, random_string) < 1.0 ) :

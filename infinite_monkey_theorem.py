@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # The infinite monkey theorem : The theorem states that a monkey hitting keys at random on a
 # typewriter keyboard for an infinite amount of time will almost surely type a given text,
 # such as the complete works of William Shakespeare. Well, suppose we replace a monkey with
@@ -8,32 +10,36 @@
 
 import random
 
-def genRandomString(strlen):
+def genRandomString(strlen) :
     letter = "abcdefghijklmnopqrstuvwxyz "; result = ""
 
-    for i in range(strlen):
+    for i in range(strlen) :
         result = result + letter[random.randrange(27)]
 
     return result
 
 
-def score(goal, test_string):
+def score(goal, test_string) :
     match_char = 0
 
-    for i in range(len(goal)):
-        if goal[i] == test_string[i]:
+    for i in range(len(goal)) :
+        if goal[i] == test_string[i] :
             match_char = match_char + 1
 
     return (match_char / len(goal))
 
 
-def getLoops(goalstr):
+def getLoops(goalstr) :
     loop_count = 0; random_string = genRandomString(len(goalstr))
-
-    while ( score(goalstr, random_string) < 1.0 ):
-        loop_count = loop_count + 1
-        random_string = genRandomString(len(goalstr))
-        print (random_string)
+    
+    if goalstr == "exit" :
+        print ("\nOhh, I Just saw the dreadful \"Exit\". \nI feel I should wish you a Good Bye then, See ya later :)")
+        exit()
+    else :
+        while ( score(goalstr, random_string) < 1.0 ) :
+            print (random_string)
+            loop_count = loop_count + 1
+            random_string = genRandomString(len(goalstr))
 
     return loop_count
 
